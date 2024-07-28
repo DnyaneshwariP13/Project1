@@ -1,7 +1,15 @@
 pandas
 numpy
 seaborn
-
+matplotlib
+scikit-learn
+warnings
+plotly
+xgboost
+catboost
+lightgbm
+catboost
+lightgbm
 
 
 -e .
