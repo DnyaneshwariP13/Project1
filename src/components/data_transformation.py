@@ -7,13 +7,14 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder,StandardScaler
+from sklearn.preprocessing import LabelEncoder
 from src.exception import CustomException
 from src.logger import logging
 from src.utils import save_obj
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path=os.path.join('artifacts','preprocessor.pkl')
+    preprocessor_obj_file_path=os.path.join('artifact','preprocessor.pkl')
 
 
 class DataTransformation:
@@ -103,8 +104,11 @@ class DataTransformation:
             logging.info("Obtaining preprocessing object.")
 
             preprocessing_obj=self.get_data_transformer_object()
-
+            
+            
             target_column_name='Target'
+        
+            
             numercial_colums=['Application mode','Course',
                 'Previous qualification',
                 'Previous qualification (grade)',
